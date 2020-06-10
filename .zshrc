@@ -117,3 +117,7 @@ source $ZSH/oh-my-zsh.sh
 if [ -f $HOME/.config.zsh ]; then
     source $HOME/.config.zsh
 fi
+
+if [ -f $DOTFILES/.functions.zsh ]; then
+    source $DOTFILES/.functions.zsh
+fi
