@@ -45,3 +45,14 @@ xdebug() {
    fi
 
 }
+
+make_db() {
+   if [ "$#" -eq "0" ]; then
+      echo "Usage: make_db <database_name>"
+   else
+      mysql -u root -e "create database $1;"
+      if [ "$?" -eq 0 ]; then
+         echo "Database $1 created"
+      fi
+   fi
+}
