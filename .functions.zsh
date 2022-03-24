@@ -1,6 +1,6 @@
 # Switch PHP versions
 phpv() {
-    if [ $1 = "7.4" ]; then
+    if [ $1 = "8.1" ]; then
         valet use php
     else
         valet use php@$1
@@ -12,6 +12,8 @@ phpv() {
 
 alias php73="phpv 7.3"
 alias php74="phpv 7.4"
+alias php80="phpv 8.0"
+alias php81="phpv 8.1"
 
 xdebug() {
    php_version_dot=$(php -r "\$v=explode('.', PHP_VERSION ); echo implode('.', array_splice(\$v, 0, -1));")

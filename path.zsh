@@ -14,3 +14,6 @@ export PATH="node_modules/.bin:vendor/bin:$PATH"
 
 #Load locally created private scripts
 export PATH="$HOME/scripts:$PATH"
+
+#Load Homebrew's sbin
+export PATH="/usr/local/sbin:$PATH"

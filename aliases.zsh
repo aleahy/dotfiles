@@ -18,13 +18,22 @@ alias sites="cd $HOME/Sites"
 # Laravel
 alias a="php artisan"
 alias ams="php artisan migrate:fresh --seed"
+alias idehelper="php artisan clear-compiled && php artisan ide-helper:generate && php artisan ide-helper:models --nowrite && php artisan ide-helper:meta"
 
 # PHP
 alias cfresh="rm -rf vendor/ composer.lock && composer i"
+alias creset="rm -rf vendor && composer i"
 
 # JS
 alias nfresh="rm -rf node_modules/ package-lock.json && npm install"
+alias nreset="rm -rf node_modules && npm install"
 alias watch="npm run watch"
+alias hot="npm run hot"
+alias ndev="npm run dev"
+alias nprod="npm run production"
+alias nin="npm install"
+alias nup="npm update"
+
 
 # Vagrant
 alias v="vagrant global-status"

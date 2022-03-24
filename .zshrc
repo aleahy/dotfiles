@@ -2,7 +2,7 @@
 export DOTFILES=$HOME/.dotfiles
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -82,7 +82,7 @@ ZSH_CUSTOM=$DOTFILES
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    osx
+    macos
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -121,3 +121,9 @@ fi
 if [ -f $DOTFILES/.functions.zsh ]; then
     source $DOTFILES/.functions.zsh
 fi
+
+#Add Python2.7 bin files
+export PATH=$HOME/Library/Python/2.7/bin:$PATH
+
+#Increase allowable open files to not clash with phpunit
+ulimit -n 10000
