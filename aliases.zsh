@@ -66,3 +66,5 @@ alias gl="git log --oneline --decorate --color"
 alias nuke="git clean -df && git reset --hard"
 alias undo_commit="git reset --soft HEAD~1"
 
+#1Password CLI
+alias aws="op run --env-file=$HOME/.config/op/aws-env -- aws"

@@ -127,3 +127,6 @@ export PATH=$HOME/Library/Python/2.7/bin:$PATH
 
 #Increase allowable open files to not clash with phpunit
 ulimit -n 10000
+
+#Enable 1Password shell completion
+eval "$(op completion zsh)"; compdef _op op
