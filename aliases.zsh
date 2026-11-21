@@ -13,12 +13,12 @@ alias c="clear"
 alias dotfiles="cd $DOTFILES"
 alias library="cd $HOME/Library"
 alias sites="cd $HOME/Sites"
-#alias lara="sites && cd laravel/"
 
 # Laravel
 alias a="php artisan"
 alias ams="php artisan migrate:fresh --seed"
 alias idehelper="php artisan clear-compiled && php artisan ide-helper:generate && php artisan ide-helper:models --nowrite && php artisan ide-helper:meta"
+alias atp="php artisan test --parallel"
 
 # PHP
 alias cfresh="rm -rf vendor/ composer.lock && composer i"
@@ -27,21 +27,12 @@ alias creset="rm -rf vendor && composer i"
 # JS
 alias nfresh="rm -rf node_modules/ package-lock.json && npm install"
 alias nreset="rm -rf node_modules && npm install"
-alias watch="npm run watch"
-alias hot="npm run hot"
 alias ndev="npm run dev"
-alias nprod="npm run production"
+alias nbuild="npm run build"
+alias nprod="npm run build"
 alias nin="npm install"
 alias nup="npm update"
 
-
-# Vagrant
-alias v="vagrant global-status"
-alias vup="vagrant up"
-alias vhalt="vagrant halt"
-alias vssh="vagrant ssh"
-alias vreload="vagrant reload"
-alias vrebuild="vagrant destroy --force && vagrant up"
 
 # Docker
 #alias docker-composer="docker-compose"
@@ -67,4 +58,8 @@ alias nuke="git clean -df && git reset --hard"
 alias undo_commit="git reset --soft HEAD~1"
 
 #1Password CLI
-alias aws="op run --env-file=$HOME/.config/op/aws-env -- aws"
+#alias aws="op run --env-file=$HOME/.config/op/aws-env -- aws"
+
+#Networking
+alias myip="curl -4 ifconfig.me"
+

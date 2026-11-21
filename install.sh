@@ -11,11 +11,10 @@ fi
 brew update
 
 # Install all our dependencies with bundle (See Brewfile)
-brew tap homebrew/bundle
 brew bundle
 
 # Install PHP extensions with PECL
-pecl install memcached imagick
+pecl install imagick xdebug redis
 
 # Install global Composer packages
 /usr/local/bin/composer global require laravel/installer laravel/spark-installer laravel/valet

@@ -130,3 +130,7 @@ ulimit -n 10000
 
 #Enable 1Password shell completion
 eval "$(op completion zsh)"; compdef _op op
+export PATH="$HOME/.local/bin:$PATH"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform

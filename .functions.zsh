@@ -1,23 +1,21 @@
 # Switch PHP versions
 phpv() {
-    if [ $1 = "8.1" ]; then
+    if [ $1 = "8.5" ]; then
         valet use php
     else
         valet use php@$1
     fi
-    sed -in "s/128M/512M/g" /usr/local/etc/php/$1/conf.d/php-memory-limits.ini
+    sed -in "s/128M/512M/g" /opt/homebrew/etc/php/$1/conf.d/php-memory-limits.ini
     composer global update
     source ~/.zshrc
 }
 
-alias php73="phpv 7.3"
-alias php74="phpv 7.4"
-alias php80="phpv 8.0"
-alias php81="phpv 8.1"
+alias php82="phpv 8.2"
+alias php84="phpv 8.4"
 
 xdebug() {
    php_version_dot=$(php -r "\$v=explode('.', PHP_VERSION ); echo implode('.', array_splice(\$v, 0, -1));")
-   xendConfigFolder="/usr/local/etc/php/$php_version_dot/conf.d"
+   xendConfigFolder="/opt/homebrew/etc/php/$php_version_dot/conf.d"
 
    xdebugUpdated=false
 
@@ -46,6 +44,30 @@ xdebug() {
       valet restart
    fi
 
+}
+
+install_xdebug() {
+   php_version_dot=$(php -r "\$v=explode('.', PHP_VERSION ); echo implode('.', array_splice(\$v, 0, -1));")
+   php_ini_file="/opt/homebrew/etc/php/$php_version_dot/php.ini"
+   xendConfigFolder="/opt/homebrew/etc/php/$php_version_dot/conf.d"
+   xdebugIniFile="$xendConfigFolder/ext-xdebug.ini"
+
+   #Delete reference to xdebug from the php.ini file
+   sed -in '/.*xdebug.*/d' $php_ini_file
+
+   #Make a specific xdebug ini file for this php version
+   echo "[xdebug]" >> $xdebugIniFile
+   echo "zend_extension=xdebug" >> $xdebugIniFile
+}
+
+xdebug_listen() {
+   if php -m | grep -q "Xdebug"; then
+      export XDEBUG_MODE=debug XDEBUG_SESSION=1
+
+      echo "Xdebug constants set"
+   else
+      echo "Xdebug is not enabled. Enable it first by running xdebug."
+   fi
 }
 
 make_db() {

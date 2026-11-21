@@ -17,3 +17,6 @@ export PATH="$HOME/scripts:$PATH"
 
 #Load Homebrew's sbin
 export PATH="/usr/local/sbin:$PATH"
+
+# DBNNGIN path for mysql
+export PATH=/Users/Shared/DBngin/mysql/8.0.33/bin:$PATH
